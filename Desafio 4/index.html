@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog com Comentários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+        }
+        .post {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .comentarios {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-top: 2px solid #ddd;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+        .comentario {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meu Blog</h1>
+    </header>
+    
+    <section class="post">
+        <h2>Título da Postagem</h2>
+        <p>Este é um exemplo de conteúdo de postagem no blog. Você pode escrever o que quiser aqui.</p>
+    </section>
+    
+    <section class="comentarios">
+        <h3>Deixe um Comentário</h3>
+        <form id="formComentario">
+            <input type="text" id="nome" placeholder="Seu Nome" required>
+            <input type="email" id="email" placeholder="Seu E-mail" required>
+            <textarea id="mensagem" rows="4" placeholder="Seu Comentário" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        
+        <h3>Comentários</h3>
+        <div id="listaComentarios"></div>
+    </section>
+    
+    <script>
+        document.getElementById('formComentario').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let nome = document.getElementById('nome').value;
+            let mensagem = document.getElementById('mensagem').value;
+            
+            let comentario = document.createElement('div');
+            comentario.classList.add('comentario');
+            comentario.innerHTML = `<strong>${nome}</strong><p>${mensagem}</p>`;
+            
+            document.getElementById('listaComentarios').appendChild(comentario);
+            
+            document.getElementById('formComentario').reset();
+        });
+    </script>
+</body>
+</html>
