@@ -3,19 +3,19 @@ Este repositório contém os desafios práticos da disciplina Interação Humano
 
 📌 Descrição da Atividade
 
-Os desafios visam aprimorar os conhecimentos em HTML, abordando conceitos como:
++ Os desafios visam aprimorar os conhecimentos em HTML, abordando conceitos como:
 
-Estruturação de páginas web
++ Estruturação de páginas web
 
-Navegação entre páginas
++ Navegação entre páginas
 
-Uso de imagens e áudios
++ Uso de imagens e áudios
 
-Texto alternativo para acessibilidade
++ Texto alternativo para acessibilidade
 
-Responsividade
++ Responsividade
 
-Alinhamento e formatação de textos
++ Alinhamento e formatação de textos
 
 Os desafios foram desenvolvidos com base nas orientações da disciplina e podem ser utilizados como material de estudo.
 
