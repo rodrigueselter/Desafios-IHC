@@ -1,0 +1,70 @@
+/* styles.css */
+
+/* Estilização básica */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222831;
+    color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #393E46;
+    color: #EEEEEE;
+    padding: 1em 0;
+    text-align: center;
+}
+
+/* Seção principal */
+main {
+    padding: 2em;
+    text-align: center;
+}
+
+/* Slideshow */
+#slideshow {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.slide {
+    display: none; /* Esconde todas as slides inicialmente */
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Botões de navegação */
+button {
+    background-color: #00ADB5;
+    color: #EEEEEE;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1em;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #2b6a6d;
+    transition: 0.3s;
+}
+
+/* Rodapé */
+footer {
+    background-color: #393E46;
+    color: #fff;
+    margin-top: auto;
+    text-align: center;
+    padding: 1em 0;
+}
