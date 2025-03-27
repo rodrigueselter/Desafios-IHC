@@ -41,4 +41,28 @@
             <a class="links" href="./../Desafio 7/index.html">Perguntas Frequentes</a>
         </footer>
     </body>
+
+    <script>
+        function showChallenge(number) {
+            document.querySelectorAll('.content div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('challenge' + number).classList.remove('hidden');
+        }
+
+        function toggleMenu() {
+            let menu = document.getElementById('menu');
+            let button = document.getElementById('toggle-btn');
+            let container = document.getElementById('menu-container');
+
+            if (menu.style.display === "none") {
+                menu.style.display = "flex";
+                menu.style.width = "200px";
+                container.style.width = "200px";
+                button.innerHTML = "&#9664;"; // Seta para a esquerda (menu aberto)
+            } else {
+                menu.style.display = "none";
+                container.style.width = "20px";
+                button.innerHTML = "&#9654;"; // Seta para a direita (menu fechado)
+            }
+        }
+    </script>
 </html>
