@@ -13,10 +13,8 @@
     
     <div class="container">
         <h2>Episódio Mais Recente</h2>
-        <audio controls>
-            <source src="episodio_mais_recente.mp3" type="audio/mpeg">
-            Seu navegador não suporta o elemento de áudio.
-        </audio>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3WaM8SCx8bLqlTZezvk8SG?utm_source=generator" width="100%" 
+        height="352" frameBorder="0" allowfullscreen=""allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         
         <h2>Episódios Anteriores</h2>
         <table>
@@ -26,7 +24,7 @@
                 <th>Duração</th>
             </tr>
             <tr>
-                <td>O Futuro da Inteligência Artificial</td>
+                <td>Qual o Plano de Deus Comigo?</td>
                 <td>10/03/2025</td>
                 <td>35 min</td>
             </tr>
@@ -44,27 +42,7 @@
     </div>
 
     <script>
-        function showChallenge(number) {
-            document.querySelectorAll('.content div').forEach(div => div.classList.add('hidden'));
-            document.getElementById('challenge' + number).classList.remove('hidden');
-        }
-
-        function toggleMenu() {
-            let menu = document.getElementById('menu');
-            let button = document.getElementById('toggle-btn');
-            let container = document.getElementById('menu-container');
-
-            if (menu.style.display === "none") {
-                menu.style.display = "flex";
-                menu.style.width = "200px";
-                container.style.width = "200px";
-                button.innerHTML = "&#9664;"; // Seta para a esquerda (menu aberto)
-            } else {
-                menu.style.display = "none";
-                container.style.width = "20px";
-                button.innerHTML = "&#9654;"; // Seta para a direita (menu fechado)
-            }
-        }
+        //nao consegui colocar um javascript
     </script>
 </body>
 </html>
