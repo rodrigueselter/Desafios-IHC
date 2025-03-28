@@ -40,27 +40,19 @@
     </div>
 
     <script>
-        function showChallenge(number) {
-            document.querySelectorAll('.content div').forEach(div => div.classList.add('hidden'));
-            document.getElementById('challenge' + number).classList.remove('hidden');
-        }
-
-        function toggleMenu() {
-            let menu = document.getElementById('menu');
-            let button = document.getElementById('toggle-btn');
-            let container = document.getElementById('menu-container');
-
-            if (menu.style.display === "none") {
-                menu.style.display = "flex";
-                menu.style.width = "200px";
-                container.style.width = "200px";
-                button.innerHTML = "&#9664;"; // Seta para a esquerda (menu aberto)
+        const headerTitle = document.querySelector('.container h2');
+        const originalText = headerTitle.textContent;
+        headerTitle.textContent = '';
+        
+        let i = 0;
+        const typingEffect = setInterval(() => { //animação de escrita em "informações de contato"
+            if (i < originalText.length) {
+                headerTitle.textContent += originalText.charAt(i);
+                i++;
             } else {
-                menu.style.display = "none";
-                container.style.width = "20px";
-                button.innerHTML = "&#9654;"; // Seta para a direita (menu fechado)
+                clearInterval(typingEffect);
             }
-        }
+        }, 100);
     </script>
 </body>
 </html>
