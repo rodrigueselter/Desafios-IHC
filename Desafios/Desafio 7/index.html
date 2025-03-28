@@ -31,27 +31,47 @@
     </div>
 
     <script>
-        function showChallenge(number) {
-            document.querySelectorAll('.content div').forEach(div => div.classList.add('hidden'));
-            document.getElementById('challenge' + number).classList.remove('hidden');
-        }
-
-        function toggleMenu() {
-            let menu = document.getElementById('menu');
-            let button = document.getElementById('toggle-btn');
-            let container = document.getElementById('menu-container');
-
-            if (menu.style.display === "none") {
-                menu.style.display = "flex";
-                menu.style.width = "200px";
-                container.style.width = "200px";
-                button.innerHTML = "&#9664;"; // Seta para a esquerda (menu aberto)
-            } else {
-                menu.style.display = "none";
-                container.style.width = "20px";
-                button.innerHTML = "&#9654;"; // Seta para a direita (menu fechado)
-            }
-        }
+        const perguntas = document.querySelectorAll('.pergunta');
+        
+        perguntas.forEach(pergunta => {
+            // Cria um efeito de acordeon para cada pergunta 
+            const toggleIcon = document.createElement('span');
+            toggleIcon.textContent = '+';
+            toggleIcon.style.float = 'right';
+            toggleIcon.style.fontWeight = 'bold';
+            toggleIcon.style.marginRight = '10px';
+            pergunta.prepend(toggleIcon);
+            
+            // Esconde todas as respostas inicialmente
+            const resposta = pergunta.nextElementSibling;
+            resposta.style.display = 'none';
+            
+            // Adiciona efeito de hover
+            pergunta.style.cursor = 'pointer';
+            pergunta.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f5f5f5';
+            });
+            pergunta.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '';
+            });
+            
+            // Alternar visibilidade da resposta
+            pergunta.addEventListener('click', function() {
+                const resposta = this.nextElementSibling;
+                const icon = this.querySelector('span');
+                
+                if (resposta.style.display === 'none') {
+                    resposta.style.display = 'block';
+                    resposta.style.animation = 'fadeIn 0.3s ease';
+                    icon.textContent = '-';
+                    this.style.borderBottom = 'none';
+                } else {
+                    resposta.style.display = 'none';
+                    icon.textContent = '+';
+                    this.style.borderBottom = '';
+                }
+            });
+        });
     </script>
 </body>
 </html>
