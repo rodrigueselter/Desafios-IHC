@@ -46,27 +46,20 @@
     </div>
 
     <script>
-        function showChallenge(number) {
-            document.querySelectorAll('.content div').forEach(div => div.classList.add('hidden'));
-            document.getElementById('challenge' + number).classList.remove('hidden');
-        }
+        //aumenta levemente o tamanho do container quando passar o mouse por cima
+        document.querySelectorAll('.filme').forEach(filme => {
+            filme.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                this.style.transition = 'all 0.3s ease';
+            });
+            
+            filme.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
 
-        function toggleMenu() {
-            let menu = document.getElementById('menu');
-            let button = document.getElementById('toggle-btn');
-            let container = document.getElementById('menu-container');
-
-            if (menu.style.display === "none") {
-                menu.style.display = "flex";
-                menu.style.width = "200px";
-                container.style.width = "200px";
-                button.innerHTML = "&#9664;"; // Seta para a esquerda (menu aberto)
-            } else {
-                menu.style.display = "none";
-                container.style.width = "20px";
-                button.innerHTML = "&#9654;"; // Seta para a direita (menu fechado)
-            }
-        }
     </script>
 </body>
 </html>
