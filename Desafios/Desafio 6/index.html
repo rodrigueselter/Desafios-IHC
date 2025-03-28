@@ -46,27 +46,41 @@
     </div>
 
     <script>
-        function showChallenge(number) {
-            document.querySelectorAll('.content div').forEach(div => div.classList.add('hidden'));
-            document.getElementById('challenge' + number).classList.remove('hidden');
-        }
-
-        function toggleMenu() {
-            let menu = document.getElementById('menu');
-            let button = document.getElementById('toggle-btn');
-            let container = document.getElementById('menu-container');
-
-            if (menu.style.display === "none") {
-                menu.style.display = "flex";
-                menu.style.width = "200px";
-                container.style.width = "200px";
-                button.innerHTML = "&#9664;"; // Seta para a esquerda (menu aberto)
-            } else {
-                menu.style.display = "none";
-                container.style.width = "20px";
-                button.innerHTML = "&#9654;"; // Seta para a direita (menu fechado)
+        const eventosFuturos = document.querySelectorAll('.eventos:first-child .evento');
+        
+        eventosFuturos.forEach(evento => {  //adiciona uma contagem regressa falando quanto tempo falta para cada evento
+            const dataHora = evento.querySelector('strong').textContent;
+            const [data, hora] = dataHora.split(' - ');
+            const [dia, mes, ano] = data.split(' de ');
+            
+            const meses = {  //define os meses do ano
+                'Janeiro': 0, 'Fevereiro': 1, 'Março': 2, 'Abril': 3, 
+                'Maio': 4, 'Junho': 5, 'Julho': 6, 'Agosto': 7,
+                'Setembro': 8, 'Outubro': 9, 'Novembro': 10, 'Dezembro': 11
+            };
+            
+            const dataEvento = new Date(ano, meses[mes], dia.replace('º', '')); 
+            const agora = new Date();
+            
+            if (dataEvento > agora) {
+                const diffTime = dataEvento - agora;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                const countdown = document.createElement('div');
+                countdown.style.fontSize = '0.8em';
+                countdown.style.color = '#e74c3c';
+                countdown.style.marginTop = '5px';
+                
+                if (diffDays > 30) {
+                    const diffMonths = Math.floor(diffDays / 30);
+                    countdown.textContent = `Faltam ${diffMonths} ${diffMonths > 1 ? 'meses' : 'mês'}`;
+                } else {
+                    countdown.textContent = `Faltam ${diffDays} ${diffDays > 1 ? 'dias' : 'dia'}`;
+                }
+                
+                evento.appendChild(countdown);
             }
-        }
+        });
     </script>
 </body>
 </html>
